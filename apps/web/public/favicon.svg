@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Minimalist Shipping Box Icon -->
+  <!-- Top Face -->
+  <polygon points="256,80 448,176 256,272 64,176" fill="#3B82F6" stroke="#1E293B" stroke-width="24" stroke-linejoin="round"/>
+  <!-- Left Face -->
+  <polygon points="64,176 256,272 256,464 64,368" fill="#60A5FA" stroke="#1E293B" stroke-width="24" stroke-linejoin="round"/>
+  <!-- Right Face -->
+  <polygon points="256,272 448,176 448,368 256,464" fill="#2563EB" stroke="#1E293B" stroke-width="24" stroke-linejoin="round"/>
+  <!-- Center Vertical Edge -->
+  <line x1="256" y1="272" x2="256" y2="464" stroke="#1E293B" stroke-width="24" stroke-linecap="round"/>
+  <!-- Top Flap Detail -->
+  <line x1="160" y1="224" x2="352" y2="128" stroke="#1E293B" stroke-width="24" stroke-linecap="round"/>
+</svg>

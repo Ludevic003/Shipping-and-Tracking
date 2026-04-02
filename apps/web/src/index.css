@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Outfit", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.contain-layout {
+  contain: layout;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer base {
+  :root {
+    --header-height: 64px;
+    
+    --background: 0 0% 98%;
+    --foreground: 220 13% 13%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 13%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 13%;
+    
+    --primary: 210 100% 45%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 13%;
+    
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 9% 46%;
+    
+    --accent: 210 100% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --error: 239 68% 68%;
+    --error-foreground: 0 0% 100%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 210 100% 45%;
+    
+    --radius: 0.5rem;
+
+    --status-pending: 220 14% 92%;
+    --status-pending-fg: 220 13% 13%;
+    
+    --status-picked-up: 210 100% 50%;
+    --status-picked-up-fg: 0 0% 100%;
+    
+    --status-in-transit: 270 100% 60%;
+    --status-in-transit-fg: 0 0% 100%;
+    
+    --status-out-for-delivery: 24 100% 50%;
+    --status-out-for-delivery-fg: 0 0% 100%;
+    
+    --status-on-hold: 0 84% 60%;
+    --status-on-hold-fg: 0 0% 100%;
+    
+    --status-in-custom-clearing: 45 100% 50%;
+    --status-in-custom-clearing-fg: 220 13% 13%;
+    
+    --status-delivery-attempt: 35 100% 50%;
+    --status-delivery-attempt-fg: 220 13% 13%;
+    
+    --status-delivered: 142 71% 45%;
+    --status-delivered-fg: 0 0% 100%;
+  }
+
+  .dark {
+    --header-height: 64px;
+    
+    --background: 220 13% 9%;
+    --foreground: 220 13% 95%;
+    
+    --card: 220 13% 11%;
+    --card-foreground: 220 13% 95%;
+    
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 13% 95%;
+    
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 220 13% 95%;
+    
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 60%;
+    
+    --accent: 210 100% 55%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --error: 239 68% 68%;
+    --error-foreground: 0 0% 100%;
+    
+    --border: 220 13% 18%;
+    --input: 220 13% 18%;
+    --ring: 210 100% 55%;
+
+    --status-pending: 220 13% 18%;
+    --status-pending-fg: 220 13% 95%;
+    
+    --status-picked-up: 210 100% 60%;
+    --status-picked-up-fg: 0 0% 100%;
+    
+    --status-in-transit: 270 100% 70%;
+    --status-in-transit-fg: 0 0% 100%;
+    
+    --status-out-for-delivery: 24 100% 60%;
+    --status-out-for-delivery-fg: 0 0% 100%;
+    
+    --status-on-hold: 0 84% 65%;
+    --status-on-hold-fg: 0 0% 100%;
+    
+    --status-in-custom-clearing: 45 100% 60%;
+    --status-in-custom-clearing-fg: 220 13% 9%;
+    
+    --status-delivery-attempt: 35 100% 60%;
+    --status-delivery-attempt-fg: 220 13% 9%;
+    
+    --status-delivered: 142 71% 50%;
+    --status-delivered-fg: 0 0% 100%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight;
+    text-wrap: balance;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+  
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .section-padding {
+    @apply py-12 md:py-20 lg:py-24;
+  }
+  .container-custom {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .card-minimal {
+    @apply bg-card border border-border/50 rounded-xl shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  .mobile-center {
+    @apply text-center md:text-left flex flex-col items-center md:items-start;
+  }
+  
+  .input-error {
+    @apply border-red-500 text-red-500 focus-visible:ring-red-500;
+  }
+  .error-message {
+    @apply text-red-500 text-sm mt-1;
+  }
+  .error-icon {
+    @apply text-red-500;
+  }
+
+  .nav-link-animated {
+    @apply relative py-1;
+  }
+  .nav-link-animated::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[2px] bg-primary origin-bottom-right scale-x-0 transition-transform duration-300 ease-out;
+  }
+  .nav-link-animated:hover::after,
+  .nav-link-animated.active::after {
+    @apply origin-bottom-left scale-x-100;
+  }
+
+  .bg-status-pending { background-color: hsl(var(--status-pending)); color: hsl(var(--status-pending-fg)); }
+  .bg-status-picked-up { background-color: hsl(var(--status-picked-up)); color: hsl(var(--status-picked-up-fg)); }
+  .bg-status-in-transit { background-color: hsl(var(--status-in-transit)); color: hsl(var(--status-in-transit-fg)); }
+  .bg-status-out-for-delivery { background-color: hsl(var(--status-out-for-delivery)); color: hsl(var(--status-out-for-delivery-fg)); }
+  .bg-status-on-hold { background-color: hsl(var(--status-on-hold)); color: hsl(var(--status-on-hold-fg)); }
+  .bg-status-in-custom-clearing { background-color: hsl(var(--status-in-custom-clearing)); color: hsl(var(--status-in-custom-clearing-fg)); }
+  .bg-status-delivery-attempt { background-color: hsl(var(--status-delivery-attempt)); color: hsl(var(--status-delivery-attempt-fg)); }
+  .bg-status-delivered { background-color: hsl(var(--status-delivered)); color: hsl(var(--status-delivered-fg)); }
+
+  .text-status-pending { color: hsl(var(--status-pending)); }
+  .text-status-picked-up { color: hsl(var(--status-picked-up)); }
+  .text-status-in-transit { color: hsl(var(--status-in-transit)); }
+  .text-status-out-for-delivery { color: hsl(var(--status-out-for-delivery)); }
+  .text-status-on-hold { color: hsl(var(--status-on-hold)); }
+  .text-status-in-custom-clearing { color: hsl(var(--status-in-custom-clearing)); }
+  .text-status-delivery-attempt { color: hsl(var(--status-delivery-attempt)); }
+  .text-status-delivered { color: hsl(var(--status-delivered)); }
+  
+  .border-status-pending { border-color: hsl(var(--status-pending)); }
+  .border-status-picked-up { border-color: hsl(var(--status-picked-up)); }
+  .border-status-in-transit { border-color: hsl(var(--status-in-transit)); }
+  .border-status-out-for-delivery { border-color: hsl(var(--status-out-for-delivery)); }
+  .border-status-on-hold { border-color: hsl(var(--status-on-hold)); }
+  .border-status-in-custom-clearing { border-color: hsl(var(--status-in-custom-clearing)); }
+  .border-status-delivery-attempt { border-color: hsl(var(--status-delivery-attempt)); }
+  .border-status-delivered { border-color: hsl(var(--status-delivered)); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
